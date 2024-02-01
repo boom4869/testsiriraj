@@ -67,13 +67,13 @@ for soup in tqdm(soups):
 import json
 with open('siriraj_doctor_details.jsonl', 'w', encoding='utf-8') as jsonl_file:
     for i in doctor_details:
-        jsonl_file.write(json.dumps(i, ensure_ascii=False) + '\n')"""
+        jsonl_file.write(json.dumps(i, ensure_ascii=False) + '\n')
 
 #pip install llama-index
 # install langchain
 #pip install openai
 #pip install streamlit
-import openai
+import openai"""
 openai.api_key = "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"
 
 from llama_index.llms.vertex import Vertex
