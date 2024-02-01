@@ -12,7 +12,7 @@ from llama_index.llms import OpenAI
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
 from pathlib import Path
 
-openai.api_key = st.secrets.openai_key
+openai.api_key = st.secrets.openai.api_key
 st.set_page_config(page_title="Chatbot for doctor appointment", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
 st.title("Chatbot for doctor appointment")
 st.info("Check out the full tutorial to build this app in our [blog post](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/)", icon="📃")
