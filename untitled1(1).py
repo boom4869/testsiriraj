@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1316oNb4E5TpQDAj3e9DdMTr1yeQzg9u7
 """
 
-from tqdm.auto import tqdm
+"""from tqdm.auto import tqdm
 import requests
 from bs4 import BeautifulSoup
 
@@ -67,7 +67,7 @@ for soup in tqdm(soups):
 import json
 with open('siriraj_doctor_details.jsonl', 'w', encoding='utf-8') as jsonl_file:
     for i in doctor_details:
-        jsonl_file.write(json.dumps(i, ensure_ascii=False) + '\n')
+        jsonl_file.write(json.dumps(i, ensure_ascii=False) + '\n')"""
 
 #pip install llama-index
 # install langchain
