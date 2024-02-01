@@ -27,7 +27,7 @@ def load_data():
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
         service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt=" Your job is to answer the questions in Thai. Keep your answers based on facts – do not hallucinate features."))
-        index = VectorStoreIndex.from_documents(document,service_context=service_context)
+        index = VectorStoreIndex.from_documents(docs,service_context=service_context)
 
         return index
 
