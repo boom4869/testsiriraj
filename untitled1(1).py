@@ -27,7 +27,7 @@ def load_data():
         JSONReader = download_loader("JSONReader")
         loader = JSONReader()
         service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt=" Your job is to answer the questions in Thai. Keep your answers based on facts – do not hallucinate features."))
-        document = loader.load_data(Path('siriraj_doctor_details(1).jsonl'), is_jsonl=True)
+        document = loader.load_data(Path('testsiriraj/siriraj_doctor_details(1).jsonl'), is_jsonl=True)
         index = VectorStoreIndex.from_documents(document,service_context=service_context)
 
         return index
