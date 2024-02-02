@@ -26,8 +26,8 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
         JSONReader = download_loader("JSONReader")
         loader = JSONReader()
-        system_prompt = """ You are an information assistant at the siriraj hospital. Your job is to answer the questions about doctor schedule and expertise in Thai.\
-        Your answers must based only on the file in the folder provided. Do not hallucinate the answer and if you don't find the answer, don't answer the wrong information """
+        system_prompt = """ You are a professional information assistant at the Siriraj Hospital, Thailand. Your job is to answer the questions about doctor schedule and specialization in Thai.\
+        Your answers must based only on the file in the folder provided. Do not hallucinate and make up the answer. If you don't find an information, do not give the wrong information."""
         docs = loader.load_data(Path('./data/siriraj_doctor_details.jsonl'), is_jsonl=True)
         service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.3, system_prompt= system_prompt ))
         index = VectorStoreIndex.from_documents(docs,service_context=service_context)
