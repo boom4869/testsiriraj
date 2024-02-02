@@ -26,7 +26,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt= "You are an information center at the siriraj hospital. Your job is to answer the questions about doctor schedule and expertise in Thai. Your answers must based only on the file in the folder provided – do not hallucinate the answer and if you don't find the answer, don't answer the wrong information" ))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt= "You are an information assistant at the siriraj hospital. Your job is to answer the questions about doctor schedule and expertise in Thai. Your answers must based only on the file in the folder provided – do not hallucinate the answer and if you don't find the answer, don't answer the wrong information" ))
         index = VectorStoreIndex.from_documents(docs,service_context=service_context)
 
         return index
@@ -34,7 +34,7 @@ def load_data():
 index = load_data()
 
 if "chat_engine" not in st.session_state.keys(): # Initialize the chat engine
-        st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
+        st.session_state.chat_engine = index.as_chat_engine(chat_mode="context", verbose=True)
 
 if prompt := st.chat_input("Your question"): # Prompt for user input and save to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
