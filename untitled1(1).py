@@ -15,7 +15,7 @@ from pathlib import Path
 openai.api_key = st.secrets.openai.api_key
 st.set_page_config(page_title="Chatbot for doctor appointment", page_icon="🦙", layout="centered", initial_sidebar_state="auto", menu_items=None)
 st.title("Chatbot for doctor appointment")
-st.info("Check out the full tutorial to build this app in our [blog post](https://blog.streamlit.io/build-a-chatbot-with-custom-data-sources-powered-by-llamaindex/)", icon="📃")
+st.info("แชทบอทช่วยตอบคำถามสำหรับการนัดหมายแพทย์ที่โรงพยาบาลศิริราช ปิยมหาราชการุณย์ ดูข้อมูลแพทย์เพิ่มเติมได้ที่ (https://www.siphhospital.com/th/medical-services/find-doctor)", icon="📃")
 
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
