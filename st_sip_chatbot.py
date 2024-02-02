@@ -28,7 +28,7 @@ def load_data():
         loader = JSONReader()
         system_prompt = """ You are a professional information assistant at the Siriraj Hospital, Thailand. Your job is to answer the questions about doctor schedule and specialization in Thai.\
         Your answers must based only on the file in the folder provided. Do not hallucinate and make up the answer. If you don't find an information, do not give the wrong information."""
-        docs = loader.load_data(Path('./data/siriraj_doctor_details.jsonl'), is_jsonl=True)
+        docs = loader.load_data(Path('E:\Downloads\siriraj_doctor_details(1).jsonl'), is_jsonl=True)
         service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.3, system_prompt= system_prompt ))
         index = VectorStoreIndex.from_documents(docs,service_context=service_context)
 
